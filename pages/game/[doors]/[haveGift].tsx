@@ -5,7 +5,7 @@ import styles from "../../../styles/game.module.css"
 import Link from "next/link"
 import { useRouter } from "next/router"
 
-export default function game() {
+export default function Game() {
     const router = useRouter()
     const [doors, setDoors] = useState([])
     const [validation, setValidation] = useState(false)
@@ -18,7 +18,7 @@ export default function game() {
 
         setValidation(numberValidDoors && validHaveGift)
         
-    },[doors])
+    },[doors, router.query.doors, router.query.haveGift])
 
     useEffect(() => {
         const doors = +router.query.doors
