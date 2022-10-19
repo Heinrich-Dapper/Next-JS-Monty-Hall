@@ -1,10 +1,10 @@
 import DoorModel from "../model/door";
 
-export function createDoors(quantity: number, selected: number): DoorModel [] {
-    return Array.from({ length: quantity}, (_, i) => {
+export function createDoors(numberOfDoors: number, doorWithGift: number): DoorModel [] {
+    return Array.from({ length: numberOfDoors}, (_, i) => {
         const number = i + 1
-        const haveGift = number === selected
-        return new DoorModel(number, haveGift)
+        const doorHaveGift = number === doorWithGift
+        return new DoorModel(number, doorHaveGift)
     })
 }
  export function updateDoors( doors: DoorModel[], modifiedDoor: DoorModel): DoorModel [] {
@@ -14,7 +14,7 @@ export function createDoors(quantity: number, selected: number): DoorModel [] {
         if (isEqualsToModified) {
             return modifiedDoor
         } else {
-            return modifiedDoor.open ? actualDoor : actualDoor.deselect()
+            return modifiedDoor.open ? actualDoor : actualDoor.uncheck()
         }
     })
 

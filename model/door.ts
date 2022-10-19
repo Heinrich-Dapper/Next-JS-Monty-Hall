@@ -33,7 +33,7 @@ export default class DoorModel {
         return new DoorModel(this.number, this.haveGift, selected, this.open)
     }
 
-    deselect() {
+    uncheck() {
         const selected = false
         return new DoorModel(this.number, this.haveGift, selected, this.open)
     }
